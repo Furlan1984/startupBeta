@@ -1,17 +1,15 @@
-package br.com.check.market.application;
+package br.com.check.market;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-
-import br.com.check.market.controller.UserController;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = UserController.class)
-public class Application {
+@EnableJpaAuditing
+public class CheckMarketApplication {
 
 	  public static void main(String[] args) {
-		  SpringApplication.run(Application.class, args);
+		  SpringApplication.run(CheckMarketApplication.class, args);
 	    }
 }

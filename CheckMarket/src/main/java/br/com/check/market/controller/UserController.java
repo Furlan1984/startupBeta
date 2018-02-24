@@ -1,23 +1,34 @@
 package br.com.check.market.controller;
 
-import java.util.concurrent.atomic.AtomicLong;
-import br.com.check.market.model.User;
+import java.util.List;
 
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.check.market.model.User;
+import br.com.check.market.repository.UserRepository;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
-	
-	
-	private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping("/user")
-    public User getUser(@RequestParam(value="name", defaultValue="World") String name) {
-        return new User(name);
-    }
+	@Autowired
+	UserRepository userRepository;
+
+	@PostMapping("/new")
+	public User create(@Valid @RequestBody User user) {
+		return userRepository.save(user);
+	}
+
+	@GetMapping("/users")
+	public List<User> getAllUsers() {
+		return userRepository.findAll();
+	}
 
 }
