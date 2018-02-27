@@ -36,7 +36,7 @@ public class UserController {
 	}
 
 	@GetMapping("/users/{id}")
-	public ResponseEntity<User> getNoteById(@PathVariable(value = "id") Long userId) {
+	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId) {
 		User user = userRepository.findOne(userId);
 		if (user == null) {
 			return ResponseEntity.notFound().build();
@@ -45,7 +45,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/users/{id}")
-	public ResponseEntity<User> deleteNote(@PathVariable(value = "id") Long userId) {
+	public ResponseEntity<User> deleteUser(@PathVariable(value = "id") Long userId) {
 		User user = userRepository.findOne(userId);
 		if (user == null) {
 			return ResponseEntity.notFound().build();
@@ -56,7 +56,7 @@ public class UserController {
 	}
 
 	@PutMapping("/users/{id}")
-	public ResponseEntity<User> updateNote(@PathVariable(value = "id") Long noteId,
+	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long noteId,
 			@Valid @RequestBody User userDetails) {
 		User user = userRepository.findOne(noteId);
 		if (user == null) {
