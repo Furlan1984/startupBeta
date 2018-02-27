@@ -25,7 +25,7 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 
-	@PostMapping("/users/new")
+	@PostMapping("/new")
 	public User create(@Valid @RequestBody User user) {
 		return userRepository.save(user);
 	}
@@ -35,7 +35,7 @@ public class UserController {
 		return userRepository.findAll();
 	}
 
-	@GetMapping("/users/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId) {
 		User user = userRepository.findOne(userId);
 		if (user == null) {
@@ -44,7 +44,7 @@ public class UserController {
 		return ResponseEntity.ok().body(user);
 	}
 
-	@DeleteMapping("/users/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<User> deleteUser(@PathVariable(value = "id") Long userId) {
 		User user = userRepository.findOne(userId);
 		if (user == null) {
@@ -55,7 +55,7 @@ public class UserController {
 		return ResponseEntity.ok().build();
 	}
 
-	@PutMapping("/users/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long noteId,
 			@Valid @RequestBody User userDetails) {
 		User user = userRepository.findOne(noteId);

@@ -25,7 +25,7 @@ public class CategoryController {
 	@Autowired
 	CategoryRepository categoryRepository;
 
-	@PostMapping("/category/new")
+	@PostMapping("/new")
 	public Category create(@Valid @RequestBody Category category) {
 		return categoryRepository.save(category);
 	}
@@ -35,7 +35,7 @@ public class CategoryController {
 		return categoryRepository.findAll();
 	}
 
-	@GetMapping("/category/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Category> getCategoryById(@PathVariable(value = "id") Long categoryId) {
 		Category category = categoryRepository.findOne(categoryId);
 		if (category == null) {
@@ -44,7 +44,7 @@ public class CategoryController {
 		return ResponseEntity.ok().body(category);
 	}
 
-	@DeleteMapping("/category/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Category> deleteCategory(@PathVariable(value = "id") Long categoryId) {
 		Category category = categoryRepository.findOne(categoryId);
 		if (category == null) {
@@ -55,7 +55,7 @@ public class CategoryController {
 		return ResponseEntity.ok().build();
 	}
 
-	@PutMapping("/category/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Category> updateCategory(@PathVariable(value = "id") Long itenId,
 			@Valid @RequestBody Category categoryDetails) {
 		Category category = categoryRepository.findOne(itenId);

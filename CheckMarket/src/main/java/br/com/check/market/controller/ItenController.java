@@ -27,7 +27,7 @@ public class ItenController {
 	@Autowired
 	ItenRepository itenRepository;
 
-	@PostMapping("/iten/new")
+	@PostMapping("/new")
 	public Iten create(@Valid @RequestBody Iten iten) {
 		iten.setValor(new BigDecimal("0.0"));
 		return itenRepository.save(iten);
@@ -38,7 +38,7 @@ public class ItenController {
 		return itenRepository.findAll();
 	}
 
-	@GetMapping("/iten/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Iten> getItenById(@PathVariable(value = "id") Long itenId) {
 		Iten iten = itenRepository.findOne(itenId);
 		if (iten == null) {
@@ -47,7 +47,7 @@ public class ItenController {
 		return ResponseEntity.ok().body(iten);
 	}
 
-	@DeleteMapping("/iten/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Iten> deleteIten(@PathVariable(value = "id") Long itenId) {
 		Iten iten = itenRepository.findOne(itenId);
 		if (iten == null) {
@@ -58,7 +58,7 @@ public class ItenController {
 		return ResponseEntity.ok().build();
 	}
 
-	@PutMapping("/iten/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Iten> updateIten(@PathVariable(value = "id") Long itenId,
 			@Valid @RequestBody Category categoryDetails) {
 		Iten iten = itenRepository.findOne(itenId);
