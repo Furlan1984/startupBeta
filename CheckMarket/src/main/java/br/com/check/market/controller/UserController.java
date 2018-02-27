@@ -56,9 +56,9 @@ public class UserController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long noteId,
+	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
 			@Valid @RequestBody User userDetails) {
-		User user = userRepository.findOne(noteId);
+		User user = userRepository.findOne(userId);
 		if (user == null) {
 			return ResponseEntity.notFound().build();
 		}

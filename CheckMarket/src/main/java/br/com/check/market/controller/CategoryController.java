@@ -56,9 +56,9 @@ public class CategoryController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Category> updateCategory(@PathVariable(value = "id") Long itenId,
+	public ResponseEntity<Category> updateCategory(@PathVariable(value = "id") Long categoryId,
 			@Valid @RequestBody Category categoryDetails) {
-		Category category = categoryRepository.findOne(itenId);
+		Category category = categoryRepository.findOne(categoryId);
 		if (category == null) {
 			return ResponseEntity.notFound().build();
 		}
