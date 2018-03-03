@@ -27,13 +27,13 @@ public class ItenController {
 	@Autowired
 	ItenRepository itenRepository;
 
-	@PostMapping("/new")
+	@PostMapping("/")
 	public Iten create(@Valid @RequestBody Iten iten) {
 		iten.setValor(new BigDecimal("0.0"));
 		return itenRepository.save(iten);
 	}
 
-	@GetMapping("/itens")
+	@GetMapping("/")
 	public List<Iten> getAllItens() {
 		return itenRepository.findAll();
 	}

@@ -2,13 +2,25 @@ package br.com.check.market.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ESTABLISHMENT")
 public class Establishment {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
 	private String name;
 	private String celphone;
 	private String phone;
 	private Date createDate;
+	
 	private boolean status;
 
 	public Long getId() {

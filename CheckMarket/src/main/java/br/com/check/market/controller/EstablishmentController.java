@@ -25,12 +25,12 @@ public class EstablishmentController {
 	@Autowired
 	EstablishmentRepository establishmentRepository;
 
-	@PostMapping("/new")
+	@PostMapping("/")
 	public Establishment create(@Valid @RequestBody Establishment establishment) {
 		return establishmentRepository.save(establishment);
 	}
 
-	@GetMapping("/establishments")
+	@GetMapping("/")
 	public List<Establishment> getAllEstablishments() {
 		return establishmentRepository.findAll();
 	}

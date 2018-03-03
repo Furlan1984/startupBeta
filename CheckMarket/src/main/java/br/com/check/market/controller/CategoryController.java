@@ -25,12 +25,12 @@ public class CategoryController {
 	@Autowired
 	CategoryRepository categoryRepository;
 
-	@PostMapping("/new")
+	@PostMapping("/")
 	public Category create(@Valid @RequestBody Category category) {
 		return categoryRepository.save(category);
 	}
 
-	@GetMapping("/categorys")
+	@GetMapping("/")
 	public List<Category> getAllCategorys() {
 		return categoryRepository.findAll();
 	}
