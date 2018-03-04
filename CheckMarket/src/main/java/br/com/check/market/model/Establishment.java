@@ -1,15 +1,15 @@
 package br.com.check.market.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 
 @Entity
-@Table(name = "ESTABLISHMENT")
 public class Establishment {
 
 	@Id
@@ -20,6 +20,9 @@ public class Establishment {
 	private String celphone;
 	private String phone;
 	private Date createDate;
+
+	@OneToMany
+	private List<Iten>itens;
 	
 	private boolean status;
 
