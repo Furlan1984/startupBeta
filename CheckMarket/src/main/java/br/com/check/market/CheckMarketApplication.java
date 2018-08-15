@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class CheckMarketApplication {
 
 	  public static void main(String[] args) {
-		  //testando 
 		  SpringApplication.run(CheckMarketApplication.class, args);
 	    }
 }
