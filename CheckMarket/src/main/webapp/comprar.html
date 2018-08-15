@@ -20,9 +20,8 @@
 	<!-- Custom styles for this template -->
 	<link href="css/grayscale.min.css" rel="stylesheet">
 	
-	<!--  Customs -->
-	        
-        <link rel="stylesheet" href="css/lista-compras.css">
+	<!--  Customs -->	        
+    <link rel="stylesheet" href="css/lista-compras.css">
 	<script src="lib/angular-1.0.1.js"></script>
 	<script src="app/lista-compras.js"></script>
 
@@ -34,7 +33,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">StartupBeta</a>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top">StartupBeta 1.0</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -43,14 +42,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#inicio">Novo</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#opcoes">Lista</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="login.html">Sair</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#ajuda">Ajuda</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#inicio">Exclui Comprados</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html">Sair</a></li>
 				</ul>
 			</div>
 		</div>
@@ -60,8 +53,6 @@
 	<header class="masthead">
 		<div class="container d-flex h-100 align-items-center">
 			<div class="mx-auto text-center">
-
-
 				<div class="container" ng-controller="ListaComprasController">
 					<div class="row">
 						<div class="page-header">
@@ -87,18 +78,24 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="row">
-						<form class="form-inline" name="formItem">
-							<input type="text" ng-model="item.produto" placeholder="Produto">
-							<input type="number" ng-model="item.quantidade"	placeholder="Quantidade" class="input-small">
-							<button class="btn btn-primary" ng-click="adicionaItem()">adicionar</button>
+					<div >
+						<form  name="formItem">
+						
+							<div class="form-group">
+								<label for="lg_produto" class="sr-only">Produto</label> 
+								<input type="text" class="form-control" ng-model="item.produto" id="lg_produto" name="lg_produto" placeholder="Produto">
+							</div>
+							<div class="form-group">
+								<label for="lg_quantidade" class="sr-only">Quantidade</label> 
+								<input type="number" class="form-control" ng-model="item.quantidade" id="lg_quantidade" name="lg_quantidade" placeholder="Quantidade">
+							</div>
+							
+							<a class="btn btn-primary js-scroll-trigger" ng-click="adicionaItem()">Adicionar</a>
 						</form>
 					</div>
 				</div>
-
-
-
 			</div>
+			
 		</div>
 	</header>
 
