@@ -1,12 +1,11 @@
 package br.com.repository;
 
-import junit.framework.TestCase;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import br.com.model.AppUser;
+import junit.framework.TestCase;
 
 /**
  * Unit test for simple App.
